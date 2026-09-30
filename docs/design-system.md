@@ -6,7 +6,7 @@ All 15 supplied PNGs were inspected. Desktop canvases are 2880 px wide; mobile s
 
 | Image | Screen |
 |---|---|
-| `design/01 — Login/Register.png` | Login and registration card, role choice, provider actions |
+| `design/01 — Login/Register.png` (folder `design/01 — Login/`, file `Register.png`) | Login and registration card, role choice, provider actions |
 | `design/02 — Student Dashboard.png` | Student overview, next best step, mastery, study stats, misconception alert |
 | `design/03 — Knowledge Graph Explorer.png` | Prerequisite graph with selected concept detail rail |
 | `design/04 — Practice Session.png` | Timed question, answer options, confidence slider, diagnostic feedback |
@@ -15,14 +15,14 @@ All 15 supplied PNGs were inspected. Desktop canvases are 2880 px wide; mobile s
 | `design/07 — Misconception Tracker.png` | Filterable misconception list and resolution detail |
 | `design/08 — Analytics Dashboard.png` | Mastery trend, calibration curve, learning gain, guess-rate metrics |
 | `design/09 — Instructor View.png` | Cohort summary, mastery heatmap, misconceptions, at-risk students |
-| `design/10 — Admin/Ops Dashboard.png` | Operations metrics, health, flagged sessions and model metrics |
+| `design/10 — Admin/Ops Dashboard.png` (folder `design/10 — Admin/`, file `Ops Dashboard.png`) | Operations metrics, health, flagged sessions and model metrics |
 | `design/11 — Edge-case States.png` | Fast-answer nudge, confidence conflict, offline, malformed input, empty, skeleton, toast and error states |
 | `design/Mobile — Dashboard.png` | Stacked student dashboard with compact header |
 | `design/Mobile — Knowledge Graph.png` | Graph preview, prerequisite node stack and selected concept card |
 | `design/Mobile — Practice Session.png` | Single-column timed practice and confidence input |
 | `design/Mobile — Learning Path.png` | Compact vertical path and update notice |
 
-The auth and operations images are stored in nested folders (`01 — Login/Register.png` and `10 — Admin/Ops Dashboard.png`).
+The auth and operations images are stored in nested folders as called out in the inventory. The paths above are repository-relative and match the actual extracted assets.
 
 ## Tokens sampled from the PNGs
 

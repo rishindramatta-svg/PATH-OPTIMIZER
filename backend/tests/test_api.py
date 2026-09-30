@@ -1,6 +1,9 @@
 import os
 from uuid import uuid4
 
+# Ensure Starlette selects the supported test transport rather than legacy httpx.
+import httpx2 as _httpx2  # noqa: F401 - preload Starlette's supported test transport
+
 os.environ["DATABASE_URL"] = "sqlite:///./api-tests.db"
 from fastapi.testclient import TestClient
 
