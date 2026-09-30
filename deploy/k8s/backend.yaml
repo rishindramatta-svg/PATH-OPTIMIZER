@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: png9-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: png9-backend}
+  template:
+    metadata:
+      labels: {app: png9-backend}
+    spec:
+      containers:
+        - name: backend
+          image: png9-backend:latest
+          ports: [{name: http, containerPort: 8000}]
+          envFrom:
+            - configMapRef: {name: png9-config}
+            - secretRef: {name: png9-secrets}
+          readinessProbe:
+            httpGet: {path: /health, port: http}
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: {path: /health, port: http}
+            initialDelaySeconds: 20
+            periodSeconds: 20
+          resources:
+            requests: {cpu: 100m, memory: 192Mi}
+            limits: {cpu: 1000m, memory: 768Mi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: png9-backend
+spec:
+  selector: {app: png9-backend}
+  ports: [{name: http, port: 8000, targetPort: http}]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels: {app: png9-backend}
+spec:
+  selector: {app: png9-backend}
+  ports: [{name: http, port: 8000, targetPort: http}]

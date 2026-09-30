@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: png9-config
+data:
+  ENV: production
+  COOKIE_SECURE: "true"
+  CORS_ORIGINS: https://learning.example.com
+  REDIS_URL: redis://redis:6379/0
+  LLM_PROVIDER: ""

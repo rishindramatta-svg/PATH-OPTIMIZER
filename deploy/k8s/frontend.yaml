@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: png9-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: png9-frontend}
+  template:
+    metadata:
+      labels: {app: png9-frontend}
+    spec:
+      containers:
+        - name: frontend
+          image: png9-frontend:latest
+          ports: [{name: http, containerPort: 80}]
+          readinessProbe:
+            httpGet: {path: /health, port: http}
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: {path: /health, port: http}
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: png9-frontend
+spec:
+  selector: {app: png9-frontend}
+  ports: [{name: http, port: 80, targetPort: http}]

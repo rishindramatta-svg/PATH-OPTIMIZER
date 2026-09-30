@@ -1,0 +1,20 @@
+{
+  "id": null,
+  "uid": "png9-overview",
+  "title": "PNG9 Service and Learning Signals",
+  "tags": ["png9", "learning"],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "10s",
+  "panels": [
+    {"id": 1, "type": "timeseries", "title": "Request rate", "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"}, "targets": [{"expr": "rate(png9_http_requests_total[5m])", "legendFormat": "req/s"}], "gridPos": {"x": 0, "y": 0, "w": 12, "h": 8}},
+    {"id": 2, "type": "timeseries", "title": "HTTP errors", "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"}, "targets": [{"expr": "rate(png9_http_errors_total[5m])", "legendFormat": "errors/s"}], "gridPos": {"x": 12, "y": 0, "w": 12, "h": 8}},
+    {"id": 3, "type": "timeseries", "title": "Request p95 latency", "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"}, "targets": [{"expr": "histogram_quantile(0.95, sum by (le) (rate(png9_http_request_duration_seconds_bucket[5m])))", "legendFormat": "p95 seconds"}], "gridPos": {"x": 0, "y": 8, "w": 12, "h": 8}},
+    {"id": 4, "type": "stat", "title": "Active SSE connections", "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"}, "targets": [{"expr": "png9_sse_connections_active"}], "gridPos": {"x": 12, "y": 8, "w": 6, "h": 8}},
+    {"id": 5, "type": "timeseries", "title": "Flagged interactions", "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"}, "targets": [{"expr": "increase(png9_flagged_interactions_total[5m])", "legendFormat": "flagged"}], "gridPos": {"x": 18, "y": 8, "w": 6, "h": 8}},
+    {"id": 6, "type": "timeseries", "title": "Path optimizer p95", "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"}, "targets": [{"expr": "png9_path_update_duration_ms{quantile=\"0.95\"}", "legendFormat": "p95 ms"}], "gridPos": {"x": 0, "y": 16, "w": 12, "h": 8}}
+  ],
+  "annotations": {"list": []},
+  "templating": {"list": []}
+}

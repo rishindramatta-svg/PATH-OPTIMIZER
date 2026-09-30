@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: png9
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-buffering: "off"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts: [learning.example.com]
+      secretName: png9-tls
+  rules:
+    - host: learning.example.com
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend: {service: {name: png9-backend, port: {number: 8000}}}
+          - path: /health
+            pathType: Exact
+            backend: {service: {name: png9-backend, port: {number: 8000}}}
+          - path: /metrics
+            pathType: Exact
+            backend: {service: {name: png9-backend, port: {number: 8000}}}
+          - path: /
+            pathType: Prefix
+            backend: {service: {name: png9-frontend, port: {number: 80}}}
