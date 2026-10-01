@@ -108,6 +108,112 @@ QUESTION_BANK = {
 }
 
 
+QUESTION_BANK.update({
+    "Variables": [
+        ("Which line correctly creates a variable named age with the value 25?", ["int age = 25", "var age := 25", "25 = age", "age = 25"], 3, "Python needs no type keyword. You write the name, an equals sign, then the value."),
+        ("After x = 5 and then x = x + 1, what is stored in x?", ["6", "5", "x + 1", "An error"], 0, "Python works out x + 1 using the old value (6) and stores the result back in x."),
+        ("Which is a valid variable name in Python?", ["2count", "my-count", "my_count", "my count"], 2, "Names can use letters, digits and underscores, but cannot start with a digit or contain hyphens or spaces."),
+        ("What happens after x = 3 and then x = 'hi'?", ["Python raises a TypeError", "x stays 3", "x now refers to the string 'hi'", "'hi' is converted to a number"], 2, "Python variables have no fixed type. Assigning again just makes the name point to the new value."),
+    ],
+    "Data types": [
+        ("What does type(3.14) report?", ["<class 'int'>", "<class 'str'>", "<class 'float'>", "<class 'decimal'>"], 2, "A number with a decimal point is a float."),
+        ("Which of these values is a string?", ["42", "3.0", "True", "'42'"], 3, "Anything inside quotes is a string, even if it looks like a number."),
+        ("What does int('7') return?", ["7", "'7'", "7.0", "An error"], 0, "int() converts the text '7' into the whole number 7."),
+        ("What type is the value True?", ["str", "int only", "bool", "None"], 2, "True and False are the two bool (Boolean) values."),
+    ],
+    "Operators": [
+        ("What is 7 // 2?", ["3.5", "4", "3", "1"], 2, "// is floor division. It divides and drops the decimal part, so 7 // 2 is 3."),
+        ("What is 7 % 2?", ["1", "3", "0", "3.5"], 0, "% gives the remainder. 7 divided by 2 leaves a remainder of 1."),
+        ("What is 2 ** 3?", ["6", "5", "9", "8"], 3, "** is the power operator, so 2 ** 3 means 2 x 2 x 2 = 8."),
+        ("Which operator checks whether two values are equal?", ["=", "!=", "==", "=>"], 2, "== compares values. A single = assigns a value to a variable."),
+    ],
+    "Strings": [
+        ("What is 'hello'[1]?", ["'h'", "'l'", "'o'", "'e'"], 3, "Indexing starts at 0, so index 1 is the second character, 'e'."),
+        ("What does len('python') return?", ["5", "7", "6", "'python'"], 2, "len() counts the characters. 'python' has 6."),
+        ("What is 'ab' * 3?", ["'ababab'", "'ab3'", "6", "An error"], 0, "Multiplying a string repeats it, so 'ab' * 3 is 'ababab'."),
+        ("What does 'Hello'.upper() return?", ["'HELLO'", "'hello'", "None, and it changes the original", "'Hello'"], 0, "upper() returns a new uppercase string. Strings cannot be changed in place."),
+    ],
+    "Input and output": [
+        ("What type does input() always return?", ["int", "float", "bool", "str"], 3, "input() returns whatever the user typed as text, even if they typed digits."),
+        ("Which line prints Hello on the screen?", ["print('Hello')", "echo('Hello')", "output('Hello')", "console.log('Hello')"], 0, "print() is the built-in function that shows output."),
+        ("age = input('Age: ') and the user types 5. What does age + 1 do?", ["It gives 6", "It gives 51", "It raises a TypeError", "It gives '5+1'"], 2, "age is the text '5'. Python will not add a number to text, so you get a TypeError."),
+        ("How do you read a whole number from the user?", ["input(int)", "number(input())", "input().int", "int(input())"], 3, "input() gives text, and int() converts that text to a whole number."),
+    ],
+    "Conditionals": [
+        ("Which keyword adds a second condition after an if?", ["else if", "elseif", "elif", "otherwise"], 2, "Python spells it elif."),
+        ("What prints? x = 5, then: if x > 3: print('big') else: print('small')", ["small", "bigsmall", "Nothing", "big"], 3, "5 > 3 is True, so only the if branch runs and prints big."),
+        ("What must come at the end of an if line?", ["A colon", "Curly braces", "A semicolon", "The word then"], 0, "Python needs a colon after the condition, then an indented block."),
+        ("How does Python know which lines belong to an if block?", ["Curly braces", "An end if line", "Indentation", "Parentheses"], 2, "Indentation defines the block in Python."),
+    ],
+    "Boolean logic": [
+        ("What is True and False?", ["True", "None", "False", "An error"], 2, "and is True only when both sides are True."),
+        ("What is not (5 > 3)?", ["True", "5", "An error", "False"], 3, "5 > 3 is True, and not flips it to False."),
+        ("What is True or False?", ["True", "False", "None", "An error"], 0, "or is True when at least one side is True."),
+        ("With x = 4, which expression is True?", ["x > 2 and x < 6", "x < 2 or x > 6", "x > 2 and x > 6", "not x == 4"], 0, "4 is greater than 2 and less than 6, so both parts are True."),
+    ],
+    "Lists": [
+        ("What does nums.append(4) do?", ["Adds 4 at the end of the list", "Adds 4 at the start", "Replaces the last item", "Removes the last item"], 0, "append() adds one item to the end of the list."),
+        ("What does len([10, 20, 30]) return?", ["2", "30", "3", "60"], 2, "len() counts the items. The list has 3."),
+        ("Which line creates an empty list?", ["{}", "()", "[]", "list{}"], 2, "Square brackets make a list. {} makes an empty dictionary."),
+        ("After nums = [1, 2, 3] and nums[0] = 9, what is nums?", ["A TypeError, lists cannot change", "[1, 2, 9]", "[9]", "[9, 2, 3]"], 3, "Lists can be changed in place, so index 0 now holds 9."),
+    ],
+    "Indexing": [
+        ("With nums = [10, 20, 30, 40], what is nums[1]?", ["10", "30", "20", "40"], 2, "Indexes start at 0, so nums[1] is the second item, 20."),
+        ("With the same list, what is nums[-1]?", ["40", "10", "30", "An error"], 0, "Negative indexes count from the end, so -1 is the last item."),
+        ("What is nums[1:3]?", ["[20, 30, 40]", "[10, 20, 30]", "[20, 30]", "[10, 20]"], 2, "A slice starts at index 1 and stops before index 3."),
+        ("What happens with nums[4] on a list of 4 items?", ["IndexError", "None", "40", "0"], 0, "Valid indexes are 0 to 3. Index 4 is out of range and raises IndexError."),
+    ],
+    "Loops": [
+        ("How many times does the body of for i in range(3): run?", ["2", "4", "3", "Forever"], 2, "range(3) gives 0, 1, 2, which is 3 repeats."),
+        ("What does range(2, 5) produce?", ["2, 3, 4, 5", "3, 4", "2, 3, 4", "2, 5"], 2, "range starts at the first number and stops before the second."),
+        ("Which loop repeats while a condition stays True?", ["for", "repeat", "loop", "while"], 3, "A while loop keeps going as long as its condition is True."),
+        ("What does for ch in 'abc': print(ch) do?", ["Prints each letter on its own line", "Prints abc on one line", "Prints the number 3", "Prints nothing"], 0, "Looping over a string gives one character at a time."),
+    ],
+    "Loop control": [
+        ("What does break do inside a loop?", ["Skips to the next iteration", "Pauses the loop", "Exits the loop immediately", "Restarts the loop"], 2, "break ends the whole loop right away."),
+        ("What does continue do inside a loop?", ["Skips the rest of this iteration and moves to the next", "Exits the loop", "Ends the program", "Repeats the same iteration"], 0, "continue jumps to the next pass of the loop."),
+        ("What prints? for i in range(5): if i == 3: break, then print(i)", ["0 1 2 3", "0 1 2 3 4", "0 1 2 4", "0 1 2"], 3, "The loop stops when i reaches 3, before 3 is printed."),
+        ("What prints? for i in range(4): if i == 2: continue, then print(i)", ["0 1", "0 1 2 3", "0 1 3", "1 3"], 2, "When i is 2, continue skips the print. Every other value prints."),
+    ],
+    "Functions": [
+        ("Which keyword defines a function?", ["function", "fun", "define", "def"], 3, "Python functions start with def."),
+        ("What does a function return if it has no return statement?", ["0", "An empty string", "None", "An error"], 2, "Without return, Python gives back None."),
+        ("How do you run a function named greet that takes no arguments?", ["greet()", "greet", "run greet", "call greet"], 0, "Writing the name followed by parentheses calls the function."),
+        ("Why do we write functions?", ["To reuse code under one name", "To make every program faster", "Python forces it", "To hide errors"], 0, "A function packages steps so you can reuse them without copying code."),
+    ],
+    "Parameters": [
+        ("In def add(a, b) called as add(2, 3), what are a and b?", ["Parameters that receive 2 and 3", "Return values", "Global variables", "Modules"], 0, "Parameters are the names in the definition. They receive the values you pass in."),
+        ("With def hi(name='friend'), what is name when you call hi()?", ["An error", "None", "'friend'", "An empty string"], 2, "A default value is used when no argument is given."),
+        ("What is the difference between a parameter and an argument?", ["An argument is in the definition; a parameter is passed in the call", "They are exactly the same thing", "Parameters exist only in built-in functions", "A parameter is the name in the definition; an argument is the value passed in"], 3, "The definition lists parameters. The call supplies arguments."),
+        ("What happens if you call def f(a, b) as f(1)?", ["TypeError: missing argument", "b becomes 0", "b becomes None", "It returns 1"], 0, "Python needs a value for every parameter that has no default."),
+    ],
+    "Return values": [
+        ("With def sq(x): return x * x, what is sq(4)?", ["8", "None", "x * x", "16"], 3, "The function returns 4 * 4, which is 16."),
+        ("What is the difference between print and return?", ["return shows a value on screen; print gives it back", "They are identical", "print stops the function", "print shows a value on screen; return hands a value back to the caller"], 3, "print only displays something. return sends a value back so the code can use it."),
+        ("What happens to code after a return statement in the same function?", ["It runs normally", "It runs twice", "It is skipped", "It runs before the return"], 2, "return ends the function immediately."),
+        ("Can a function return more than one value?", ["Yes, as a tuple such as return a, b", "No, only one value is allowed", "Only if you use global", "Only if they are lists"], 0, "Returning a, b packs both values into a tuple."),
+    ],
+    "Scope": [
+        ("A variable is created inside a function. What happens if you print it outside?", ["It prints the value", "It prints None", "It prints 0", "A NameError is raised"], 3, "Variables made inside a function are not visible outside it."),
+        ("x = 10 outside, then def f(): x = 5. After f(), what does print(x) show?", ["5", "None", "An error", "10"], 3, "The x inside f is a separate local variable. The global x stays 10."),
+        ("What is a local variable?", ["Available everywhere in the file", "Stored in a separate file", "Created inside a function and available only there", "Always a number"], 2, "Local variables live only while their function runs."),
+        ("Which keyword lets a function change a global variable?", ["static", "local", "outer", "global"], 3, "Writing global x inside the function makes assignments change the outer x."),
+    ],
+    "Dictionaries": [
+        ("With d = {'a': 1}, what is d['a']?", ["'a'", "{'a': 1}", "KeyError", "1"], 3, "Looking up a key returns the value stored with it."),
+        ("What happens with d['b'] if 'b' is not a key?", ["KeyError", "None", "0", "An empty string"], 0, "Reading a missing key with square brackets raises KeyError."),
+        ("Which line adds key 'c' with value 3?", ["d.add('c', 3)", "d.append('c', 3)", "d{'c'} = 3", "d['c'] = 3"], 3, "Assigning to a new key adds it to the dictionary."),
+        ("What does d.get('z', 0) return when 'z' is missing?", ["0", "KeyError", "None", "'z'"], 0, "get() returns the default you give instead of raising an error."),
+    ],
+    "Tuples and sets": [
+        ("Which of these is a tuple?", ["[1, 2]", "{1, 2}", "(1, 2)", "{'a': 1}"], 2, "Round brackets make a tuple."),
+        ("What happens with t = (1, 2, 3) and then t[0] = 9?", ["t becomes (9, 2, 3)", "9 is added to t", "t[0] is deleted", "A TypeError, because tuples cannot be changed"], 3, "Tuples are immutable, so you cannot assign to an index."),
+        ("What does set([1, 2, 2, 3]) give?", ["{1, 2, 2, 3}", "[1, 2, 3]", "{1, 3}", "{1, 2, 3}"], 3, "A set keeps each value only once."),
+        ("Which statement about sets is true?", ["They hold unique items; duplicates are dropped", "They keep duplicates in order", "You read items by index like s[0]", "You can only create them with []"], 0, "Sets store unique values and have no index positions."),
+    ],
+})
+
+
 def seed():
     Base.metadata.create_all(engine)
     db = SessionLocal()
@@ -171,6 +277,33 @@ def seed():
                     )
             db.flush()
             validate_dag(db.scalars(select(Concept)).all())
+        for title, bank_items in QUESTION_BANK.items():
+            if title not in CONCEPT_NAMES:
+                continue
+            q_slug = title.lower().replace(" ", "-")
+            current = db.scalars(
+                select(Question).where(Question.concept_slug == q_slug).order_by(Question.id)
+            ).all()
+            for idx, (q_prompt, q_options, q_correct, q_expl) in enumerate(bank_items):
+                if idx < len(current):
+                    row = current[idx]
+                    row.prompt = q_prompt
+                    row.options = q_options
+                    row.correct_index = q_correct
+                    row.explanation = q_expl
+                    row.misconception_ids = ["", f"misunderstands_{q_slug}", "", ""]
+                else:
+                    db.add(
+                        Question(
+                            concept_slug=q_slug,
+                            prompt=q_prompt,
+                            options=q_options,
+                            correct_index=q_correct,
+                            explanation=q_expl,
+                            misconception_ids=["", f"misunderstands_{q_slug}", "", ""],
+                        )
+                    )
+        db.flush()
         demo_password = os.getenv("DEMO_PASSWORD", "DemoPass123!")
         hashed = bcrypt.hashpw(demo_password.encode(), bcrypt.gensalt()).decode()
         for email, role in (
