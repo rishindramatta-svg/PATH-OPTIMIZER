@@ -670,7 +670,24 @@ def next_question(
         session = PracticeSession(id=str(uuid4()), user_id=user.id)
         db.add(session)
         db.commit()
-    q = db.get(Question, questionId) if questionId else db.scalar(select(Question).order_by(Question.id).limit(1))
+    if questionId:
+        q = db.get(Question, questionId)
+    else:
+        last_seen = dict(
+            db.execute(
+                select(Interaction.question_id, func.max(Interaction.created_at))
+                .where(Interaction.user_id == user.id)
+                .group_by(Interaction.question_id)
+            ).all()
+        )
+        all_questions = db.scalars(select(Question).order_by(Question.id)).all()
+        unseen = [item for item in all_questions if item.id not in last_seen]
+        if unseen:
+            q = unseen[0]
+        elif all_questions:
+            q = min(all_questions, key=lambda item: last_seen[item.id])
+        else:
+            q = None
     if not q:
         raise HTTPException(404, "Question not found")
     return {
