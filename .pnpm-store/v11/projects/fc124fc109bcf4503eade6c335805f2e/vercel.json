@@ -1,1 +1,1 @@
-{"rewrites":[{"source":"/api/(.*)","destination":"https://YOURAPP.onrender.com/api/$1"},{"source":"/health","destination":"https://YOURAPP.onrender.com/health"}]}
+{"rewrites":[{"source":"/api/(.*)","destination":"https://path-optimizer.onrender.com/api/$1"},{"source":"/health","destination":"https://path-optimizer.onrender.com/health"}]}
